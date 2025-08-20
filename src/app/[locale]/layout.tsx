@@ -12,12 +12,11 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params
+  params: {locale}
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: {locale: (typeof routing.locales)[number]};
 }) {
-  const {locale} = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
@@ -26,7 +25,6 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        {/* 关键：传入 locale */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

@@ -2,12 +2,13 @@
 'use client';
 import {useTranslations, useLocale} from 'next-intl';
 import {usePathname, useRouter} from '@/i18n/navigation';
+import type {Locale} from '@/types/i18n';
 
 export default function LocaleSwitcher() {
   const t = useTranslations('LocaleSwitcher');
   const router = useRouter();
   const locale = useLocale();
-  const pathname = usePathname(); // 已是不带语言前缀的“受控”路径类型
+  const pathname = usePathname();
 
   return (
     <label style={{display: 'inline-flex', gap: 8, alignItems: 'center'}}>
@@ -15,9 +16,8 @@ export default function LocaleSwitcher() {
       <select
         value={locale}
         onChange={(e) => {
-          const next = e.target.value as 'en' | 'zh';
+          const next = e.target.value as Locale;
           if (next === locale) return;
-          // 关键：传对象，让类型系统知道是受控路由
           router.replace({pathname}, {locale: next});
         }}
       >
