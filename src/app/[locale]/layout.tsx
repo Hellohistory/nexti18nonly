@@ -4,8 +4,6 @@ import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import {setRequestLocale, getMessages} from 'next-intl/server';
 
-// 删掉 force-static，或改成 auto
-// export const dynamic = 'force-static';
 export const dynamic = 'auto';
 
 export function generateStaticParams() {

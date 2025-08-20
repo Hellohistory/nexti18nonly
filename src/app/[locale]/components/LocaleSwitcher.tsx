@@ -1,3 +1,4 @@
+// src/app/[locale]/components/LocaleSwitcher.tsx
 'use client';
 import {useTranslations, useLocale} from 'next-intl';
 import {usePathname, useRouter} from '@/i18n/navigation';
