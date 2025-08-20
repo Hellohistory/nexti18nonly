@@ -1,0 +1,11 @@
+{
+  "HomePage": {
+    "title": "你好，世界！",
+    "about": "前往关于页面"
+  },
+  "LocaleSwitcher": {
+    "label": "语言",
+    "zh": "中文",
+    "en": "英文"
+  }
+}
